@@ -1,20 +1,210 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
+<div class="back">
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <!--      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>-->
+      <a class="navbar-brand" href="#">Online Phone Directory</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+     <div  class="nav navbar-nav navbar-left">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" [(ngModel)] = "Searchbox" name="search" type="text" placeholder="Search" style="height:50px;">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="onSubmit()">Search</button>
+        </form>
+        <!--        <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>-->
+      </div>
+      <div class="nav navbar-nav navbar-right">
+
+        <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/signin']"> SignIn</a></li>
+        <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/signup']">SignUp</a></li>
+
+        <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/profile']">Profile</a></li>
+
+       <!-- <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/features']">Features</a></li>-->
+
+        <!--<select *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+  &lt;!&ndash;        <button class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">Features</button>
+          <ul class="dropdown-menu" role="menu">&ndash;&gt;
+          <option>Features</option>
+            <option><a [routerLink]="['/features']">Add/Search Contact</a></option>
+            <option><a [routerLink]="['/']">See NearBy Contact</a></option>
+&lt;!&ndash;          </ul>&ndash;&gt;
+        </select>-->
+
+        <li class="dropdown" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <div>
+        <li class="dropbtn">Features
+            <i class="fa fa-caret-down"></i>
+          </li>
+        </div>
+          <div class="dropdown-content">
+            <a [routerLink]="['/features']">Add/Search Contact</a>
+            <a [routerLink]="['/locator']">See NearBy Contact</a>
+          </div>
+        </li>
+
+        <!--<ng4-dropdown>
+          <ng4-dropdown-button>
+            Features
+          </ng4-dropdown-button>
+          <ng4-dropdown-menu>
+            <ng4-menu-item>
+              <a [routerLink]="['/features']">Add/Search a Contact</a>
+              <a [routerLink]="['/features']">See Near By Contacts</a>
+            </ng4-menu-item>
+          </ng4-dropdown-menu>
+        </ng4-dropdown>-->
+        <!-- <ul class="dropdown-menu">-->
+<!--        <button class="dropdown" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+          <button class="dropdown-menu"><a [routerLink]="['/features']">Features</a></button>
+          <button class="dropdown-men"><a [routerLink]="['/features']">See Nearby Contacts</a></button>
+        </button>-->
+
+
+       <!-- </ul>-->
+        <li *ngIf="authService.loggedIn()"><a (click)="onLogoutClick()" href="#">SignOut</a></li>
+      </div>
+
+      <!--
+      <li class="dropdown">
+        <a href="#" class="dropdown-tog   " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li role="separator" class="divider"></li>
+          <li class="dropdown-header">Nav header</li>
+          <li><a href="#">Separated link</a></li>
+          <li><a href="#">One more separated link</a></li>
+        </ul>
+      </li>-->
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+
+<!--<app-navbar></app-navbar>-->
+<flash-messages></flash-messages>
+<router-outlet></router-outlet>
+<!--<app-signin></app-signin>
+<app-signup></app-signup>-->
+<div class="container">
+  <div class="row">
+<!--    <app-courses></app-courses>
+    <app-author></app-author>-->
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
-  </li>
-</ul>
+
+<!--<footer class="navbar-default" style="position: fixed; bottom: 0px; width: 100%; height: 100px" >
+  <div class="container">
+    <div class="row bottom-rule">
+
+    </div>
+  </div>
+</footer>-->
+<!--<div class="container">
+  <footer  class= "nav navbar-nav navbar-center" style="position: fixed; bottom: 0px; width: 100%; height: 60px; align-self: center">
+    <li><a href="#termsofUse">Terms of Use</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </footer>
+</div>
+<footer class = "nav navbar-header" style="position: fixed; bottom: 0px; width: 100%; height: 60px">
+  Copyright information
+</footer>-->
+<br><br><br><br><br><br><br><br>
+<!--<div style="margin-top: 20%">
+  <footer class="navbar-large" style="width: 100%;height: 20px; text-align: center; font-size: 15px;">
+    <span>&copy;2017 Universal Phone Directory. All Rights Reserved.<a href="#"> Terms of Use.</a><a href="#"> Privacy Statement.</a><a href="#"> Licenses</a></span>
+  </footer>
+</div>-->
+
+<footer>
+  <div class="footer" id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+          <h3> Site Information </h3>
+          <ul>
+            <li> <a href="#"> AboutUs </a> </li>
+            <!--<li> <a href="#"> ContactUs </a> </li>-->
+            <li> <a href="#"> Terms and Conditions </a> </li>
+            <li> <a href="#"> Privacy Policy </a> </li>
+          </ul>
+        </div>
+        <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+          <h3> Connect </h3>
+          <ul>
+            <li> <a href="#"> Youtube </a> </li>
+            <li> <a href="#"> Facebook </a> </li>
+            <li> <a href="#"> RSS Feeds </a> </li>
+            <li> <a href="#"> From the Blog </a> </li>
+          </ul>
+        </div>
+        <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+          <h3> Contact </h3>
+          <ul>
+            <li> <a href="#"> Chat </a> </li>
+            <li> <a href="#"> Email </a> </li>
+            <li> <a href="#"> Call </a> </li>
+          </ul>
+        </div>
+        <!--<div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Lorem Ipsum </h3>
+          <ul>
+            <li> <a href="#"> Lorem Ipsum </a> </li>
+            <li> <a href="#"> Lorem Ipsum </a> </li>
+            <li> <a href="#"> Lorem Ipsum </a> </li>
+            <li> <a href="#"> Lorem Ipsum </a> </li>
+          </ul>
+        </div>-->
+        <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
+          <h3> Benefits </h3>
+          <ul>
+            <li>
+              <div class="input-append newsletter-box text-center">
+                <input type="text" class="full text-center" placeholder="Email ">
+                <button class="btn  bg-gray" type="button"> Connect <i class="fa fa-long-arrow-right"> </i> </button>
+              </div>
+            </li>
+          </ul>
+          <ul class="social">
+            <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
+            <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
+            <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
+            <li> <a href="#"> <i class="fa fa-pinterest">   </i> </a> </li>
+            <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
+          </ul>
+        </div>
+      </div>
+      <!--/.row-->
+    </div>
+    <!--/.container-->
+  </div>
+  <!--/.footer-->
+
+  <div class="footer-bottom">
+    <div class="container" style="text-align: center">
+      <p> Copyright © Phone Directory 2017. All right reserved. </p>
+      <!--<div class="pull-right">
+        <ul class="nav nav-pills payments">
+          <li><i class="fa fa-cc-visa"></i></li>
+          <li><i class="fa fa-cc-mastercard"></i></li>
+          <li><i class="fa fa-cc-amex"></i></li>
+          <li><i class="fa fa-cc-paypal"></i></li>
+        </ul>
+      </div>-->
+    </div>
+  </div>
+  <!--/.footer-bottom-->
+</footer>
+<!--</div>-->
+
 

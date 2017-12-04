@@ -1,0 +1,165 @@
+
+
+<!--<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Jumbotron Template for Bootstrap</title>
+
+    &lt;!&ndash; Bootstrap core CSS &ndash;&gt;
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    &lt;!&ndash; Custom styles for this template &ndash;&gt;
+    <link href="jumbotron.css" rel="stylesheet">
+  </head>-->
+<!--
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+-->
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-3">Phone Directory</h1>
+    <p>If you want to know the contact details of a person, institution, company etc, you are in the right place. Get all the information you need to get in touch with whom you are searching for. </p>
+
+    <!-- Button trigger modal -->
+    <!--<div style="text-align: center">-->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" (click)="modal.open()">Learn more&raquo;</button>
+    <!--</div>-->
+    <!-- Modal -->
+
+    <modal #modal>
+      <modal-header>
+        <h4 class="modal-title"><b>Information</b></h4>
+      </modal-header>
+      <modal-content>
+        Please <b>signin</b> or <b>signup</b> to use the features of this website.<br><br>
+        You have the following features :
+        <li>Search for contact</li>
+        <li>Add Contact Information</li>
+        <li>See nearby contacts</li>
+      </modal-content>
+      <modal-footer></modal-footer>
+    </modal>
+
+
+   <!-- <p>&lt;!&ndash;<a class="btn btn-primary btn-lg"  href="#" role="button">Learn more &raquo;</a>&ndash;&gt;</p>-->
+
+    <!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#flipFlop">
+      Learn more
+    </button>
+
+    <div class="modal fade" id="flipFlop" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="modalLabel">Flip-flop</h4>
+          </div>
+          <div class="modal-body">
+            A type of open-toed sandal.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+ <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" >&times;</button>
+          <h4 class="modal-title">Success</h4>
+        </div>
+        <div class="modal-body">
+          <p>Your request for submitting the data has been processed. Redirecting to homepage.</p>
+        </div>
+        <div class="modal-footer" style="justify-content: center">
+          <button type="button" class="btn btn-primary" style="">OK</button>
+          &lt;!&ndash;      <button type="button" class="btn btn-default" >Cancel</button>&ndash;&gt;
+        </div>
+      </div>
+    </div>-->
+
+  </div>
+</div>
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Add Personal Information</h2>
+      <p>Add your personal information to the website, so that your close one's can find you and reach out to you.</p>
+      <!--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>-->
+      <ul *ngIf="authService.loggedIn(); else other_content" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/features/adddetails']">View Details &raquo;</a></ul>
+      <ng-template #other_content><a [routerLink]="['/signin']">View Details &raquo;</a></ng-template>
+    </div>
+
+    <div class="col-md-4">
+      <h2>Search Contacts</h2>
+      <p>Find out your friends mobile contact, check where they are staying. Get their personal address and have some fun time with them. </p>
+      <!--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>-->
+      <ul *ngIf="authService.loggedIn(); else other_content" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/features/search']">View Details &raquo;</a></ul>
+      <ng-template #other_content><a [routerLink]="['/signin']">View Details &raquo;</a></ng-template>
+    </div>
+
+    <div class="col-md-4">
+      <h2>See Near By Contacts</h2>
+      <p>Have the privilege to see who all are staying nearby to your place and get their personal information. </p>
+      <!--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>-->
+      <ul *ngIf="authService.loggedIn(); else other_content" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/locator']">View Details &raquo;</a></ul>
+      <ng-template #other_content><a [routerLink]="['/signin']">View Details &raquo;</a></ng-template>
+    </div>
+
+  </div>
+  <!--<hr>-->
+</div>
+
+ <!-- /container -->
+<!--
+
+<div class="container">
+  <router-outlet> </router-outlet>
+</div>
+-->
+
+
+

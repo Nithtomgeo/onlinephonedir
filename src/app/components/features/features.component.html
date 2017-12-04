@@ -1,0 +1,67 @@
+<!--
+<div class="form-group" style="text-align: center; scroll-padding-inline: 10px">
+  <label style="font-size: 25px; padding-top: 50px; padding-bottom: 30px">Select one of the two options</label><br>
+  <div class="radio-inline" *ngFor= 'let option of options; let i = index'>
+    <label style="font-size: 15px;">
+      <router-outlet></router-outlet>
+      <input class="form-check-input" type="radio" name="optionradio" value= "option.value">
+      <input type="radio" [(ngModel)]="opt" value="{{option.value}}" *ngIf="opt==='search'" [routerLink]="['./search']">
+      {{option.display}}<br>
+      &lt;!&ndash;<i>selected item:</i> <b>{{ opt }}</b><br/><br/>&ndash;&gt;
+
+    </label>
+  </div>
+  <div>
+
+    <div *ngIf="opt==='search'">
+
+      <br><br>
+      &lt;!&ndash;<app-search></app-search>&ndash;&gt;<br><br> &lt;!&ndash;<app-state></app-state> <app-city></app-city>&ndash;&gt;
+      <button class="btn btn-md btn-primary" (click)="searching()" type="submit">Search</button>
+    </div>
+    <div *ngIf="opt==='adddetails'">
+      <app-adddetails></app-adddetails>
+    </div>
+   &lt;!&ndash; <ng-template #option2><app-adddetails></app-adddetails></ng-template>&ndash;&gt;
+  </div>
+</div>
+-->
+
+<div class="form-group" style="text-align: center; scroll-padding-inline: 10px">
+  <label style="font-size: 25px; padding-top: 50px; padding-bottom: 30px">Select one of the two options</label><br>
+  <!--<div class="radio-inline" *ngFor= 'let option of options; let i = index'>-->
+    <label style="font-size: 15px;">
+      <!--<input class="form-check-input" type="radio" name="optionradio" value= "option.value">-->
+      <!--<input type="radio" [(ngModel)]="opt" name ="opt" value="{{option.value}}" (click)="showSelected()" >-->
+      <input type="radio" [(ngModel)]="opt" name ="opt" value="search" (change)="showSelected()" >
+      Search for a Contact &nbsp;&nbsp;
+      <input type="radio" [(ngModel)]="opt" name ="opt" value="adddetails" (change)="showSelected()" >
+      Add Details to be stored in directory
+      <!--{{option.display}}--><br>
+      <!--<i>selected item:</i> <b>{{ opt }}</b><br/><br/>-->
+
+    </label>
+  <!--</div>-->
+  <div>
+
+   <router-outlet></router-outlet>
+
+    <!--     <div *ngIf="opt==='search'" (click)="showSelected()">
+         <br><br>
+    &lt;!&ndash; <a [routerLink]="['./search']">Search</a>&ndash;&gt;
+    &lt;!&ndash;    <router-outlet></router-outlet>&ndash;&gt;
+
+        &lt;!&ndash;<app-search></app-search>&ndash;&gt;<br><br> &lt;!&ndash;<app-state></app-state> <app-city></app-city>&ndash;&gt;
+        &lt;!&ndash;<button class="btn btn-md btn-primary" (click)="searching()" type="submit">Search</button>&ndash;&gt;
+      </div>
+      <div *ngIf="opt==='adddetails'">
+       &lt;!&ndash; <br><br>&ndash;&gt;
+       &lt;!&ndash; <a [routerLink]="['./adddetails']">Add details</a>&ndash;&gt;
+     &lt;!&ndash;   <router-outlet></router-outlet>
+        <app-adddetails></app-adddetails>&ndash;&gt;
+      </div>-->
+
+    <!-- <ng-template #option2><app-adddetails></app-adddetails></ng-template>-->
+  </div>
+</div>
+

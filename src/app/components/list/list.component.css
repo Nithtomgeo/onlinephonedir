@@ -1,0 +1,20 @@
+.pagination { margin: 0px !important; }
+
+table{
+  table-layout: fixed;
+  width: 90%;
+  table-border-color-dark: black;
+  margin-left: 70px;
+}
+
+td{
+  width: auto;
+}
+
+.decor{
+  font-weight: bold;
+}
+
+.subdecor{
+  text-align: center;
+}

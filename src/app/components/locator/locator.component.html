@@ -1,0 +1,38 @@
+<!--<head>
+ &lt;!&ndash; <script src='https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAY9F1U0ejFCi9eYGCWpjGmsI6-0hsLkZg'></script>&ndash;&gt;
+</head>-->
+<div>
+  <button class="btn btn-md btn-secondary" style="margin-left: 10%" (click)="back()" type="submit">Back to homepage</button>
+  <div style="text-align: center">
+<h3><b>User Location Tracked</b></h3><br><br>
+  </div>
+  <!--<div *ngIf="country == null; else other_content">-->
+  <div>
+<table class="table-bordered table-condensed">
+  <tr><td>Country</td><td>{{country}}</td></tr>
+  <tr><td>State</td><td>{{region}}</td></tr>
+  <tr><td>City</td><td>{{city}}</td></tr>
+</table>
+ <!--   <ng-template #other_content>
+      <table class="table-bordered table-condensed">
+        <tr><td>Country</td><td>{{country}}</td></tr>
+        <tr><td>State</td><td>{{region}}</td></tr>
+        <tr><td>City</td><td>{{city}}</td></tr>
+      </table>
+    </ng-template>-->
+  </div>
+
+<br><br>
+  <p style="text-align: center">* Please click on <b>showlocation</b> to confirm your current location and click on <b>submit</b> to view all the users near to your location.</p><br>
+  <div>
+    <div class="inner" style="margin-left: 35%">
+      <button class="btn btn-md btn-primary" (click)="showloc()" type="submit">Show Location</button>
+    </div>
+    <div class="inner">
+      <button class="btn btn-md btn-primary" style="margin-left: 60%" (click)="searching()" type="submit">Submit</button>
+    </div>
+  </div>
+</div>
+<!--<p>
+  locator works!
+</p>-->

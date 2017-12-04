@@ -1,0 +1,16 @@
+/*div.container {
+  width:98%;
+  margin:1%;
+}*/
+
+table{
+  /*table-layout: auto;*/
+  width: 50%;
+  align: center;
+  table-border-color-dark: black;
+  /*margin-left: 70px;*/
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+tr,td {text-align:left;}

@@ -1,0 +1,95 @@
+<ng-container *ngFor="let item of data">
+<div *ngIf="!(item.title===undefined); else eight" style="margin-left: 10%">
+ <div *ngIf="item.link==='featurespage'; else second ">
+  <h3><b><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/features/']">
+    {{item.title}}
+  </a></b></h3>
+  <p>
+    {{item.description}}
+  </p>
+ </div>
+
+ <ng-template #second>
+   <ng-container>
+    <div *ngIf="item.link==='adddetail'; else third ">
+    <h3><b><a  [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/features/adddetails']">
+      {{item.title}}
+    </a></b></h3>
+    <p>
+      {{item.description}}
+    </p>
+  </div>
+   </ng-container>
+</ng-template>
+  <ng-template #third>
+    <ng-container>
+    <div *ngIf="item.link==='homepage'; else fourth ">
+      <h3><b><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['']">
+        {{item.title}}
+      </a></b></h3>
+      <p>
+        {{item.description}}
+      </p>
+    </div>
+    </ng-container>
+  </ng-template>
+  <ng-template #fourth>
+    <ng-container>
+    <div *ngIf="item.link==='locatorpage'; else fifth">
+      <h3><b><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/locator']">
+        {{item.title}}
+      </a></b></h3>
+      <p>
+        {{item.description}}
+      </p>
+    </div>
+    </ng-container>
+  </ng-template>
+  <ng-template #fifth>
+    <ng-container>
+    <div *ngIf="item.link==='signup'; else sixth">
+      <h3><b><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/signup']">
+        {{item.title}}
+      </a></b></h3>
+      <p>
+        {{item.description}}
+      </p>
+    </div>
+    </ng-container>
+  </ng-template>
+  <ng-template #sixth>
+    <ng-container>
+    <div *ngIf="item.link==='signin'; else seventh">
+      <h3><b><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/signin']">
+        {{item.title}}
+      </a></b></h3>
+      <p>
+        {{item.description}}
+      </p>
+    </div>
+    </ng-container>
+  </ng-template>
+  <ng-template #seventh>
+    <ng-container>
+    <div *ngIf="item.link==='searchdetail'; else eight">
+      <h3><b><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/features/search']">
+        {{item.title}}
+      </a></b></h3>
+      <p>
+        {{item.description}}
+      </p>
+    </div>
+    </ng-container>
+  </ng-template>
+</div>
+  <ng-template #eight>
+    <ng-container>
+      <div>
+        <p>
+          Sorry, your search returned no results. Please try again.
+        </p>
+      </div>
+    </ng-container>
+  </ng-template>
+
+</ng-container>

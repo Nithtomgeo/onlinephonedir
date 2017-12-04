@@ -1,0 +1,158 @@
+<!--<p>
+  adddetails works!
+</p>-->
+
+<div class="container">
+  <div class="row">
+    <br><br>
+    <legend style="text-align: center"><!--<a href="http://www.jquery2dotnet.com"><i class="glyphicon glyphicon-globe"></i></a>--> <b>Add Details</b></legend>
+    <!--<div class="col-sm-6 col-md-6 col-md-offset-3">-->
+    <!--<form action="#" method="post" class="form" role="form">-->
+    <form #adddetail="ngForm" (ngSubmit)="OnSubmit()">
+      <div class="row">
+    <div class="col-md-6">
+      <div class="account-wall">
+        <!--<legend style="text-align: center">&lt;!&ndash;<a href="http://www.jquery2dotnet.com"><i class="glyphicon glyphicon-globe"></i></a>&ndash;&gt; <b>Add Details</b></legend>-->
+          <div class="row">
+            <div class="col-xs-6 col-md-6">
+              <input class="form-control" [(ngModel)]="firstname" name="firstname" placeholder="First Name" type="text"
+                     required autofocus />
+            </div>
+            <div class="col-xs-6 col-md-6">
+              <input class="form-control" [(ngModel)]="lastname" name="lastname" placeholder="Last Name" type="text" required />
+            </div>
+          </div>
+          <!--<input class="form-control" name="youremail" placeholder="Your Email" type="email" />
+          <input class="form-control" name="reenteremail" placeholder="Re-enter Email" type="email" />
+          <input class="form-control" name="password" placeholder="New Password" type="password" />-->
+          <input class="form-control" [(ngModel)]="cellnumber" name="cellnumber" placeholder="Cell Number" type="number" required/>
+          <input class="form-control" [(ngModel)]="homenumber" name="homenumber" placeholder="Home Number" type="number" required/>
+          <input class="form-control" [(ngModel)]="address" name="address" placeholder="Location" type="text" required/>
+          <!--<input class="form-control" name="yourimage" placeholder="Photo" type="image" />-->
+          <!--<label>
+            Birth Date</label>
+          <div class="row">
+            <div class="col-xs-4 col-md-4">
+              <select class="form-control">
+                <option value="Month">Month</option>
+              </select>
+            </div>
+            <div class="col-xs-4 col-md-4">
+              <select class="form-control">
+                <option value="Day">Day</option>
+              </select>
+            </div>
+            <div class="col-xs-4 col-md-4">
+              <select class="form-control">
+                <option value="Year">Year</option>
+              </select>
+            </div>
+          </div>
+          <label class="radio-inline">
+            <input type="radio" name="sex" id="inlineCheckbox1" value="male" />
+            Male
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="sex" id="inlineCheckbox2" value="female" />
+            Female
+          </label>-->
+          <br />
+          <br />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-6">
+        <div class="form-group">
+          <!--<label style="margin-right: 0%">Country</label>-->
+
+          <select name="C"class="form-control" [(ngModel)]="selectedCountry" (ngModelChange)="forstatedropdown()">
+           <option label="Add Country">Add Country</option>
+            <!--style="max-width: 20%; margin-left: 10%;" >-->
+            <option *ngFor="let country of countries" [ngValue]="country">{{country}}</option>
+            <option label="Country Not Listed">Country Not Listed</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <!--<label style="margin-right: 0%">State</label>-->
+          <select name="S" class="form-control" [(ngModel)]="selectedState" (ngModelChange)="forcitydropdown()"> <!--style="max-width: 20%; margin-left: 10%;" >-->
+            <option label="Add States">Add State</option>
+            <option *ngFor="let state of states" [ngValue]="state">{{state}}</option>
+            <option label="State Not Listed">State Not Listed</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <!--<label style="margin-right: 0%">City</label>-->
+          <select name="c" class="form-control" [(ngModel)]="selectedCity" > <!--style="max-width: 20%; margin-left: 10%;" >-->
+            <option label="Add City">Add City</option>
+            <option *ngFor="let city of cities" [ngValue]="city">{{city}}</option>
+            <option label="City Not Listed">City Not Listed</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div *ngIf="selectedCountry==='Country Not Listed';else other_content">
+          <input class="form-control" [(ngModel)]="Country" name="country" placeholder="Add Country" type="text" required />
+          <input class="form-control" [(ngModel)]="State" name="state" placeholder="Add State" type="text" required />
+          <input class="form-control" [(ngModel)]="City" name="city" placeholder="Add City" type="text" required />
+          <ng-template #other_content><input class="form-control" [(ngModel)]="Country" name="country" placeholder="Add Country" type="text" /></ng-template>
+        </div>
+        <div *ngIf="selectedState==='State Not Listed';else other_content1">
+          <input class="form-control" [(ngModel)]="State" name="state" placeholder="Add State" type="text" required />
+          <input class="form-control" [(ngModel)]="City" name="city" placeholder="Add City" type="text" required />
+          <ng-template #other_content1><input class="form-control" [(ngModel)]="selectedState" name="state" placeholder="Add State" type="text"/></ng-template>
+        </div>
+        <div *ngIf="selectedCity==='City Not Listed';else other_content2">
+          <input class="form-control" [(ngModel)]="City" name="city" placeholder="Add City" type="text" required />
+        <ng-template #other_content2><input class="form-control" [(ngModel)]="selectedCity" name="city" placeholder="Add City" type="text"/></ng-template>
+        </div>
+        </div>
+      <!--<div class="col-md-4"></div>-->
+      <label>*If you don't find the country, state or city in the dropdown, then you can enter in the textbox provided alongside.</label>
+    </div>
+      </div>
+  <!--<div *ngIf="sub.click()==='true'"><app-submitmodal></app-submitmodal></div>-->
+  <!--<app-submitmodal></app-submitmodal>-->
+    <!--  <button class="btn btn-md btn-primary" [(ngModel)]="flag" ngDefaultControl value="{{flag}}" type="submit"
+              (click)="clicked()" style="align-self: center;">-->
+      <div class="row">
+        <button class="btn btn-md btn-primary"  type="submit"
+              [disabled]="!adddetail.form.valid" style="align-self: center;">
+        Submit
+      </button>
+      </div>
+  </form>
+  </div>
+
+<!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>-->
+
+  <!-- Modal -->
+  <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>-->
+
+  <!--<button class="btn btn-md btn-primary" [(ngModel)]="flag" type="submit" (click)="clicked()" style="align-self: center;">-->
+
+
+  <!--<div *ngIf="flag==='true'"><app-submitmodal></app-submitmodal></div>-->
+ <!-- <app-submitmodal></app-submitmodal>-->
+</div>
+
+

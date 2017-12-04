@@ -1,0 +1,15 @@
+table{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td{
+  font-weight: bold;
+  text-align: center;
+  font-style: italic;
+}
+
+.inner{
+  display: inline-block;
+}
