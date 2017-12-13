@@ -1,3 +1,5 @@
+/* model for adding the details of the user*/
+
 const mongoose = require('mongoose');
 
 var UserSchema = mongoose.Schema({
@@ -39,12 +41,11 @@ var Adddetail = module.exports = mongoose.model('Adddetail', UserSchema);
 
 module.exports.addUser = function (userInfo, callback) {
       userInfo.save(callback);
-     }
+     };
 
 module.exports.getUser = function (userInfo1, userInfo2, userInfo3, callback) {
   const query = {country: userInfo1, state: userInfo2, city: userInfo3};
 
   Adddetail.find(query, callback);
- // console.log(callback);
-}
+};
 

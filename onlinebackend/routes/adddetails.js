@@ -1,3 +1,5 @@
+/* Rest api for adding the user details and fetching the user information */
+
 const express = require('express');
 const router = express.Router();
 const Adddetail = require('../models/adddetail');
@@ -17,7 +19,6 @@ router.post('/infoadd',(req, res, next)=>{
 
   });
 
- // console.log(req.body.firstname);
   Adddetail.addUser(userInfo, (err, adddetail)=>{
     if(err)
       res.json({success: false, msg: 'Failed to add the user details'});
@@ -33,10 +34,8 @@ router.get('/searchuser/:param1/:param2/:param3', (req, res, next) => {
   const value2 = req.params.param2;
   const value3 = req.params.param3;
 
-  //var children = {};
   Adddetail.getUser(value1, value2, value3,(err,search) =>{
     if(err)
-    //   res.json('error');
       throw err;
 
     if(!search) {
@@ -45,12 +44,8 @@ router.get('/searchuser/:param1/:param2/:param3', (req, res, next) => {
     else
       res.json(
         search
-        //  children: search.children
-
-
-      );
-    // res.json({search: req.search});
-  });
+        );
+   });
 });
 
 module.exports = router;

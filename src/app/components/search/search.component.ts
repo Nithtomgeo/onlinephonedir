@@ -1,5 +1,7 @@
+/* Search functionality page */
+
 import { Component, OnInit } from '@angular/core';
-import { StateComponent} from '../state/state.component';
+// import { StateComponent} from '../state/state.component';
 import { SearchingService} from '../../services/searching.service';
 import { Router} from '@angular/router';
 import {Product} from '../list/product';
@@ -31,14 +33,6 @@ export class SearchComponent implements OnInit {
    selectedCountry = '';
    selectedState = '';
    selectedCity = '';
- /*  id: string;
-   value: string;*/
-
- /* public user:User;*/
- // let countries: Array<string> = [];
- /* states: [
-
-    ];*/
 
   constructor(private searchingService: SearchingService, private router: Router) {
     this.countries = [];
@@ -48,57 +42,33 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     // this.states = ['Florida', 'Chicago'];
+    /* Populating the country dropdown by calling the service */
      this.searchingService.getCountry().subscribe( country => {
        this.countries =  country;
-       console.log(this.countries);
+       // console.log(this.countries);
       // this.states = this.nextdropdown();
      });
- /*   this.searchingService.getState('USA').subscribe(state => {
-      //  console.log(state + 'here');
-      this.states = state;
-      console.log(this.states);
-    });*/
     }
 
+  /* Populating the state dropdown by calling the service */
   forstatedropdown() {
-   // console.log(this.countries);
-   // value = value.stringify();
     this.searchingService.getState(this.selectedCountry).subscribe(state => {
-   //  console.log(state + 'here');
+
        this.states = state;
-     // return 'false';
-      // console.log(this.states);
-     // return this.states;
-//      this.states = this.searchingService.saveData(state);
-    //  this.states = this.searchingService.getData();
-     // console.log(this.states);
-    //  console.log(this.states);
-    // this.router.navigate(['/features/state']);
-  //    this.states = state;
     });
-  //   this.states = this.searchingService.getData();
-    // console.log(this.states);
- //   return false;
-
-   // return true;
-   // return 'false';
   }
-  // log(this.states);
- /*   , err => {
-      console.log(err);
-      return false;
-    });
-  }*/
 
+  /* Populating the city dropdown by calling the service */
   forcitydropdown() {
     console.log('here');
     this.searchingService.getCity(this.selectedState).subscribe(city => {
       this.cities = city;
-      console.log('Hai' +  this.cities);
+      // console.log('Hai' +  this.cities);
     });
   }
 
   searching() {
+    /* Retrieving the user information by passing the country, state and city to the service */
     this.searchingService.getDetails(this.selectedCountry, this.selectedState, this.selectedCity).subscribe(detail => {
     //  this.details = detail;
       this.searchingService.saveData(detail);
@@ -109,4 +79,3 @@ export class SearchComponent implements OnInit {
   //   this.router.navigate(['/list', {detail: JSON.stringify(detail)}]);
   }
 }
-// export const productList: Product[] = this.details;

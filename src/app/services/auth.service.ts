@@ -1,3 +1,5 @@
+/* Authentication Service */
+
 import { Injectable } from '@angular/core';
 import { Http, Headers  } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -35,6 +37,7 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  /* Storing the token from the login in local storage */
   storeUserData(token, user) {
     localStorage.setItem('id_token', token);
     localStorage.setItem('user', JSON.stringify(user));

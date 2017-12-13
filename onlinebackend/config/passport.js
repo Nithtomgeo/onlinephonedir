@@ -1,3 +1,5 @@
+/* using the passport jwt strategy for authentication*/
+
 const _ = require('lodash');
 const passport = require('passport');
 const JwtStrategy = require("passport-jwt").Strategy;

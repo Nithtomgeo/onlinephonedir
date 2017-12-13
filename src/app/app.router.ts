@@ -1,3 +1,5 @@
+/* The component that specifies the routes to each page */
+
 import {ModuleWithProviders} from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import { AppComponent} from './app.component';
@@ -11,10 +13,8 @@ import {ProfileComponent} from './components/profile/profile.component';
 import {AuthGuard} from './guards/auth.guard';
 import {SearchComponent} from './components/search/search.component';
 import {AdddetailsComponent} from './components/adddetails/adddetails.component';
-import {StateComponent} from './components/state/state.component';
-import {CityComponent} from './components/city/city.component';
 import {LocatorComponent} from './components/locator/locator.component';
-import {SearchboxComponent} from "./components/searchbox/searchbox.component";
+import {SearchboxComponent} from './components/searchbox/searchbox.component';
 
 export const router: Routes = [
   {
@@ -30,8 +30,6 @@ export const router: Routes = [
     path: 'features', component: FeaturesComponent, canActivate: [AuthGuard],
     children: [
       { path: 'search', component: SearchComponent},
-      { path: 'state', component: StateComponent},
-      { path: 'city', component: CityComponent},
         //  path: 'state', component: StateComponent,
       { path: 'adddetails', component: AdddetailsComponent }
     ]

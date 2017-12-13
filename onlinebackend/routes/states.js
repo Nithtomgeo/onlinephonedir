@@ -1,3 +1,5 @@
+/* Rest api for adding the state or retrieving the state information */
+
 const express = require('express');
 const router = express.Router();
 const State = require('../models/state');
@@ -32,16 +34,12 @@ router.get('/searchstate/:param1', (req, res, next) => {
       return res.json({success: false, msg: 'Unsuccessful'});
     }
     else {
-      console.log(search.states);
+     // console.log(search.states);
       let states = search.states.split(',');
       res.json(
         states
-        //  children: search.children
-
-
       );
     }
-    // res.json({search: req.search});
   });
 });
 

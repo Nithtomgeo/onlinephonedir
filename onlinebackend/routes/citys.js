@@ -1,3 +1,5 @@
+/* Rest api for adding the city or retrieving the city information */
+
 const express = require('express');
 const router = express.Router();
 const City = require('../models/city');
@@ -9,7 +11,6 @@ router.post('/city',(req, res, next)=>{
     citys: req.body.citys
   });
 
-  // console.log(req.body.firstname);
   City.addCity(cityInfo, (err, state)=>{
     if(err)
       res.json({success: false, msg: 'Failed to add the city'});
@@ -22,10 +23,8 @@ router.post('/city',(req, res, next)=>{
 router.get('/searchcity/:param1', (req, res, next) => {
 
   const name = req.params.param1;
-  //var children = {};
   City.getCityById(name,(err,search) =>{
     if(err)
-    //   res.json('error');
       throw err;
 
     if(!search) {
@@ -35,12 +34,8 @@ router.get('/searchcity/:param1', (req, res, next) => {
       let cities = search.citys.split(',');
       res.json(
         cities
-        //  children: search.children
-
-
       );
     }
-    // res.json({search: req.search});
   });
 
 });

@@ -1,3 +1,5 @@
+/* Model for search box schema */
+
 const mongoose = require('mongoose');
 
 let SearchboxScehma = {

@@ -2,12 +2,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container">
     <div class="navbar-header">
-      <!--      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>-->
+
       <a class="navbar-brand" href="#">Online Phone Directory</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -27,17 +22,6 @@
 
         <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/profile']">Profile</a></li>
 
-       <!-- <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/features']">Features</a></li>-->
-
-        <!--<select *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
-  &lt;!&ndash;        <button class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">Features</button>
-          <ul class="dropdown-menu" role="menu">&ndash;&gt;
-          <option>Features</option>
-            <option><a [routerLink]="['/features']">Add/Search Contact</a></option>
-            <option><a [routerLink]="['/']">See NearBy Contact</a></option>
-&lt;!&ndash;          </ul>&ndash;&gt;
-        </select>-->
-
         <li class="dropdown" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
         <div>
         <li class="dropbtn">Features
@@ -50,41 +34,9 @@
           </div>
         </li>
 
-        <!--<ng4-dropdown>
-          <ng4-dropdown-button>
-            Features
-          </ng4-dropdown-button>
-          <ng4-dropdown-menu>
-            <ng4-menu-item>
-              <a [routerLink]="['/features']">Add/Search a Contact</a>
-              <a [routerLink]="['/features']">See Near By Contacts</a>
-            </ng4-menu-item>
-          </ng4-dropdown-menu>
-        </ng4-dropdown>-->
-        <!-- <ul class="dropdown-menu">-->
-<!--        <button class="dropdown" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
-          <button class="dropdown-menu"><a [routerLink]="['/features']">Features</a></button>
-          <button class="dropdown-men"><a [routerLink]="['/features']">See Nearby Contacts</a></button>
-        </button>-->
-
-
-       <!-- </ul>-->
         <li *ngIf="authService.loggedIn()"><a (click)="onLogoutClick()" href="#">SignOut</a></li>
       </div>
 
-      <!--
-      <li class="dropdown">
-        <a href="#" class="dropdown-tog   " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li role="separator" class="divider"></li>
-          <li class="dropdown-header">Nav header</li>
-          <li><a href="#">Separated link</a></li>
-          <li><a href="#">One more separated link</a></li>
-        </ul>
-      </li>-->
     </div><!--/.nav-collapse -->
   </div>
 </nav>
@@ -102,29 +54,7 @@
   </div>
 </div>
 
-<!--<footer class="navbar-default" style="position: fixed; bottom: 0px; width: 100%; height: 100px" >
-  <div class="container">
-    <div class="row bottom-rule">
-
-    </div>
-  </div>
-</footer>-->
-<!--<div class="container">
-  <footer  class= "nav navbar-nav navbar-center" style="position: fixed; bottom: 0px; width: 100%; height: 60px; align-self: center">
-    <li><a href="#termsofUse">Terms of Use</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </footer>
-</div>
-<footer class = "nav navbar-header" style="position: fixed; bottom: 0px; width: 100%; height: 60px">
-  Copyright information
-</footer>-->
 <br><br><br><br><br><br><br><br>
-<!--<div style="margin-top: 20%">
-  <footer class="navbar-large" style="width: 100%;height: 20px; text-align: center; font-size: 15px;">
-    <span>&copy;2017 Universal Phone Directory. All Rights Reserved.<a href="#"> Terms of Use.</a><a href="#"> Privacy Statement.</a><a href="#"> Licenses</a></span>
-  </footer>
-</div>-->
 
 <footer>
   <div class="footer" id="footer">
@@ -156,15 +86,7 @@
             <li> <a href="#"> Call </a> </li>
           </ul>
         </div>
-        <!--<div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-          <h3> Lorem Ipsum </h3>
-          <ul>
-            <li> <a href="#"> Lorem Ipsum </a> </li>
-            <li> <a href="#"> Lorem Ipsum </a> </li>
-            <li> <a href="#"> Lorem Ipsum </a> </li>
-            <li> <a href="#"> Lorem Ipsum </a> </li>
-          </ul>
-        </div>-->
+
         <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
           <h3> Benefits </h3>
           <ul>
@@ -193,14 +115,7 @@
   <div class="footer-bottom">
     <div class="container" style="text-align: center">
       <p> Copyright © Phone Directory 2017. All right reserved. </p>
-      <!--<div class="pull-right">
-        <ul class="nav nav-pills payments">
-          <li><i class="fa fa-cc-visa"></i></li>
-          <li><i class="fa fa-cc-mastercard"></i></li>
-          <li><i class="fa fa-cc-amex"></i></li>
-          <li><i class="fa fa-cc-paypal"></i></li>
-        </ul>
-      </div>-->
+
     </div>
   </div>
   <!--/.footer-bottom-->

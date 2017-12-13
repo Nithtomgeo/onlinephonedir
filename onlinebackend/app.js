@@ -23,13 +23,15 @@ mongoose.connection.on('error',(err)=>{
   console.log('Error connecting to database' + err);
 });
 
+/* decalring the routes fot the various api's */
+
 var app = express();
 
 var port = 3000;
 
 var users = require('./routes/users');
 
-var searchs = require('./routes/searchs');
+// var searchs = require('./routes/searchs');
 
 var adddetails = require('./routes/adddetails');
 
@@ -47,16 +49,8 @@ var searchboxes = require('./routes/searchboxes');
 //CORS Middleware
 
 app.use(cors());
-/*
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials");
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
-});
-*/
-//app.use(express.static(path.join(__dirname,'../public')));
+
+app.use(express.static(path.join(__dirname,'../public')));
 
 //Body Parser
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -75,8 +69,10 @@ app.use(passport.session());
 
 require('./config/passport')(passport);
 
+/* routes for the different api's */
+
 app.use('/users',users);
-app.use('/search',searchs);
+// app.use('/search',searchs);
 app.use('/adddetails',adddetails);
 app.use('/countrys',countrys);
 app.use('/states',states);
@@ -91,8 +87,9 @@ app.get('/',(req, res)=>{
   res.send('Invalid endpoint');
 });
 
+/* Common public directory for client server communication */
 app.get('*', (req, res) => {
- // res.sendFile(path.join(__dirname, '../public/index.html'));
+   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 //Start Server

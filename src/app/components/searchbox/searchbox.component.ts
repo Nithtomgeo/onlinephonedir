@@ -1,3 +1,5 @@
+/* Search box functionality */
+
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {SearchingService} from '../../services/searching.service';

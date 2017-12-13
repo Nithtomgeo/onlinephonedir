@@ -1,3 +1,5 @@
+/* Sign up Page */
+
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {ValidateService} from '../../services/validate.service';
@@ -43,6 +45,7 @@ export class SignupComponent implements OnInit {
       address: this.address
     };
 
+    /* Calling the validate service */
     if (!this.validateService.validateRegister(user)) {
       this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 3000});
     }
@@ -51,6 +54,7 @@ export class SignupComponent implements OnInit {
       this.flashMessage.show('Please enter a valid email address', {cssClass: 'alert-danger', timeout: 3000});
     }
 
+    /* Calling the authenticate service */
     this.authservice.registerUser(user).subscribe(data => {
       if (data.success) {
         this.flashMessage.show('User has been registered', {cssClass: 'alert-success', timeout: 3000});

@@ -1,3 +1,5 @@
+/* Submit modal that will submit the details to the database */
+
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 

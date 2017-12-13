@@ -1,3 +1,5 @@
+/* Service for the searching functionality */
+
 import { Injectable } from '@angular/core';
 import { Http, Headers  } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -30,6 +32,7 @@ export class SearchingService {
     ];
   constructor(private http: Http) { }
 
+  /* Get the country data from the database by calling the country api */
   getCountry() {
     const headers = new Headers();
      headers.append('Content-Type', 'application/json');
@@ -37,6 +40,7 @@ export class SearchingService {
       .map(res => res.json());
   }
 
+  /* Get the state data from the database by calling the state api */
   getState(value) {
     const headers = new Headers();
     const params: URLSearchParams = new URLSearchParams();
@@ -53,6 +57,7 @@ export class SearchingService {
       .map(res => res.json());
   }
 
+  /* Get the city data from the database by calling the city api */
   getCity(value) {
     const headers = new Headers();
     const params: URLSearchParams = new URLSearchParams();
@@ -62,6 +67,7 @@ export class SearchingService {
       .map(res => res.json());
   }
 
+  /* Common storage area to save the details so that other page can retrieve the information from it */
    saveData(share) {
     // console.log('save data function called' + str + this.sharingData.name);
     SearchingService.details = share;
@@ -73,6 +79,8 @@ export class SearchingService {
 
   //  console.log(this.sharingData + 'sharingdata');
    }
+
+  /* Common storage area to load the details saved by other page */
   getData() {
     console.log('hey' + SearchingService.details);
   //  console.log('Hai' + this.sharingData);

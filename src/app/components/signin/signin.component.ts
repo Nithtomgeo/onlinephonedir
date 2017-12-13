@@ -1,9 +1,11 @@
+/* Sign in page */
+
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {ValidateService} from '../../services/validate.service';
 import {FlashMessagesService} from 'angular2-flash-messages';
 import {AuthService} from '../../services/auth.service';
-import {isDefined} from "@angular/compiler/src/util";
+// import {isDefined} from "@angular/compiler/src/util";
 
 @Component({
   selector: 'app-signin',
@@ -51,6 +53,7 @@ export class SigninComponent implements OnInit {
       password: this.password,
     //  captcha: this.g-recaptcha-response
     }
+    /* Calling the validate service */
     if (!this.validateService.validateRegister(loguser)) {
       this.flashMessage.show('Please enter email id and password', {cssClass: 'alert-danger', timeout: 3000});
     }
@@ -58,6 +61,8 @@ export class SigninComponent implements OnInit {
     if (!this.validateService.validateEmail(loguser.email)) {
       this.flashMessage.show('Please enter a valid email address', {cssClass: 'alert-danger', timeout: 3000});
     }
+
+    /* Calling the authenticating service for authenticating */
     this.authService.authenticateUser(loguser).subscribe(data => {
       if (data.success) {
         this.authService.storeUserData(data.token, data.user);

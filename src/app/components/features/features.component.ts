@@ -1,3 +1,5 @@
+/* Features page that contain the search and add details data */
+
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
@@ -9,16 +11,6 @@ import {Router} from '@angular/router';
 export class FeaturesComponent implements OnInit {
 
   opt: string;
-/*  search: String;
-  adddetails: String;*/
-/*  public options = [
-    {
-      value: 'search', display: 'Search for a Contact'
-    },
-    {
-      value: 'adddetails', display: 'Add Details to be stored in directory'
-    }
-  ];*/
 
   constructor(private router: Router) {}
 

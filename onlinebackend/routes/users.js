@@ -1,3 +1,5 @@
+/* Rest api for adding the user while sign up or sign in authentication or profile fetching */
+
 const express = require('express');
 const _ = require('lodash');
 const bodyParser = require('body-parser');
@@ -12,12 +14,6 @@ const request = require('request');
 //var user;
 
 var token='';
-//router.use(cors());
-//router.use(bodyParser.urlencoded({ extended: true }));
-//router.use(bodyParser.json());
-//router.use(passport.initialize());
-//router.use(passport.session());
-//require('../config/passport')(passport);
 
 //Register
 router.post('/register',(req, res, next)=>{
@@ -28,8 +24,6 @@ router.post('/register',(req, res, next)=>{
     password: req.body.password,
     phonenumber: req.body.phonenumber,
     address: req.body.address,
-/*    dob: req.body.dob,
-    gender: req.body.gender,*/
     });
 
   User.addUser(newUser, (err, user)=>{
@@ -69,8 +63,7 @@ router.post('/authenticate',(req, res, next)=>{
             email: user.email
           }
         });
-       // console.log(token);
-      }
+       }
       else
         return res.json({success:false, msg: 'Wrong Password'});
     });
@@ -98,12 +91,7 @@ router.post('/robotcaptcha', (req, res) => {
   });
 });
 
-//require('../config/passport')(passport);
-//protecting any route, put "authenticate('jwt', {session: "false"})"
-//console.log("Welcome");
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next)=>{
-//router.get('/profile',(req, res, next)=>{
-  //console.log("Welcome");
   res.json({user:req.user});
 });
 

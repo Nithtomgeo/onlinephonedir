@@ -1,3 +1,5 @@
+/* Service to validate the user data*/
+
 import { Injectable } from '@angular/core';
 /*import {isDefined} from "@angular/compiler/src/util";*/
 

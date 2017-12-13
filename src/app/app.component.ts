@@ -13,11 +13,6 @@ import {SearchingService} from './services/searching.service';
   /*templateUrl: '<router-outlet></router-outlet>',*/
   styleUrls: ['./app.component.css']
 
-/*    `<h1> MyFirst App</h1>
-  <app-courses></app-courses>
-  <app-author></app-author>`*/
-/*  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],*/
 })
 export class AppComponent {
   title = 'app';
@@ -41,9 +36,6 @@ export class AppComponent {
         this.router.navigate(['/searchbox']);
       }
       this.details = detail;
-     // console.log('Hai' + detail.search[0].title);
-     // console.log('Hai' + detail.description);
-     // console.log('Hai' + detail.link);
     });
   }
 
@@ -53,11 +45,4 @@ export class AppComponent {
     this.router.navigate(['']);
     return false;
   }
-/*  navigate1() {
-    this.router.navigate(['./components/signin']);
-  }
-  navigate2() {
-    this.router.navigate(['./components/signup']);
-  }*/
-
 }

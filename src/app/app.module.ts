@@ -1,11 +1,11 @@
+/* Contains the list of all modules or components used in the application */
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {routes} from './app.router';
 
 import { AppComponent } from './app.component';
 import { HttpModule} from '@angular/http';
-import {CoursesComponent} from './courses.component';
-import {AuthorComponent} from './author.component';
 import {CommonModule} from '@angular/common';
 import { NavbarComponent } from './components/homepage/homepage.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -15,8 +15,8 @@ import { SearchComponent } from './components/search/search.component';
 import { AdddetailsComponent } from './components/adddetails/adddetails.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule } from '@angular/forms';
-import { StateComponent } from './components/state/state.component';
-import { CityComponent } from './components/city/city.component';
+// import { StateComponent } from './components/state/state.component';
+// import { CityComponent } from './components/city/city.component';
 import { ListComponent } from './components/list/list.component';
 import { SubmitmodalComponent } from './components/submitmodal/submitmodal.component';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
@@ -51,8 +51,8 @@ import {MdDialogRef} from '@angular/material';*/
 
 @NgModule({
   declarations: [
-    AppComponent, CoursesComponent, AuthorComponent, NavbarComponent, SignupComponent, SigninComponent,
-    FeaturesComponent, SearchComponent, AdddetailsComponent, StateComponent, CityComponent, ListComponent,
+    AppComponent, NavbarComponent, SignupComponent, SigninComponent,
+    FeaturesComponent, SearchComponent, AdddetailsComponent, ListComponent,
     SubmitmodalComponent, ProfileComponent, LocatorComponent, DataFilterPipe, SearchboxComponent
   ],
   imports: [ BrowserModule, routes, BsDropdownModule.forRoot(), FormsModule, HttpModule, BootstrapModalModule,

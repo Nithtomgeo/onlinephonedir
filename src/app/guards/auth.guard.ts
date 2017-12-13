@@ -1,3 +1,5 @@
+/* Auth guard component that will be called to verify whether the user is logged in */
+
 import { Injectable } from '@angular/core';
 import {Router, CanActivate} from '@angular/router';
 import {AuthService} from '../services/auth.service';

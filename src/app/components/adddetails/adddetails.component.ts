@@ -1,3 +1,5 @@
+/* Component for adding the user details including country, state and city if required[Add detail page] */
+
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AdddetailService} from '../../services/adddetail.service';
@@ -32,33 +34,7 @@ export class AdddetailsComponent implements OnInit {
   City = 'Add City';
 
   flag;
-  /*public countries = [
-    {
-      value: 'australia', display: 'Australia'
-    },
-    {
-      value: 'america', display: 'America'
-    }
-  ]
 
-  public states = [
-    {
-      value: 'florida', display: 'Florida'
-    },
-    {
-      value: 'ohio', display: 'Ohio'
-    }
-  ]
-
-  public cities = [
-    {
-      value: 'tallahassee', display: 'Tallahassee'
-    },
-    {
-      value: 'miami', display: 'Miami'
-    }
-  ]
-*/
   constructor(private router: Router, private adddetail: AdddetailService, private searchingService: SearchingService) {
     this.countries = [];
     this.states = [];
@@ -78,6 +54,7 @@ console.log('it came here');
         countries : this.Country,
        // Ci : this.City
     };
+      /* Passing the country data to add detail service to be passed to api */
       this.adddetail.AddCountry(info).subscribe(data => {
         if (data.success) {
           // this.flashMessage.show('User has been registered', {cssClass: 'alert-success', timeout: 3000});
@@ -92,6 +69,7 @@ console.log('it came here');
         states : this.State,
       // Ci : this.City,
     };
+      /* Passing the state data to add detail service to be passed to api */
         this.adddetail.AddState(info).subscribe(data => {
           if (data.success) {
             // this.flashMessage.show('User has been registered', {cssClass: 'alert-success', timeout: 3000});
@@ -105,6 +83,7 @@ console.log('it came here');
             name : this.selectedState,
             citys : this.City
     };
+      /* Passing the city data to add detail service to be passed to api */
         this.adddetail.AddCity(info).subscribe(data => {
           if (data.success) {
             // this.flashMessage.show('User has been registered', {cssClass: 'alert-success', timeout: 3000});
@@ -127,15 +106,14 @@ console.log('it came here');
       city: this.selectedCity
     };
 
+    /* passing the user details to the service */
     this.adddetail.UserInfo(userInfo).subscribe(data => {
       if (data.success) {
        // this.flashMessage.show('User has been registered', {cssClass: 'alert-success', timeout: 3000});
         this.router.navigate(['/submitmodal']);
       }
     });
-
   }
-
 
   ngOnInit() {
   //  if (!(this.selectedCountry === 'Country Not Listed')) {
@@ -148,35 +126,15 @@ console.log('it came here');
   }
 
   forstatedropdown() {
-    // console.log(this.countries);
-    // value = value.stringify();
+
     if (!(this.selectedCountry === 'Country Not Listed')) {
       this.searchingService.getState(this.selectedCountry).subscribe(state => {
-        //  console.log(state + 'here');
+
         this.states = state;
-        // return 'false';
-        // console.log(this.states);
-        // return this.states;
-//      this.states = this.searchingService.saveData(state);
-        //  this.states = this.searchingService.getData();
-        // console.log(this.states);
-        //  console.log(this.states);
-        // this.router.navigate(['/features/state']);
-        //    this.states = state;
+
       });
-      //   this.states = this.searchingService.getData();
-      // console.log(this.states);
-      //   return false;
     }
-    // return true;
-    // return 'false';
   }
-  // log(this.states);
-  /*   , err => {
-       console.log(err);
-       return false;
-     });
-   }*/
 
   forcitydropdown() {
     if (!(this.selectedState === 'State Not Listed')) {

@@ -1,3 +1,5 @@
+/* Locator component that will show the nearby city of the user */
+
 import { Component, OnInit } from '@angular/core';
 import { SearchingService} from '../../services/searching.service';
 import {Params, Router} from '@angular/router';
@@ -27,26 +29,18 @@ declare var google: any;
   latlng: any;
 
   constructor(private searchingService: SearchingService, private router: Router) {
-   /* this.routeparams.subscribe((params: Params) => {
-      console.log(params);
-      this.ngOnInit();
-      // this will be called every time route changes
-      // so you can perform your functionality here
-
-    });*/
-
-   // this.router.navigate(['/locator']);
 
   }
 
   ngOnInit() {
 
 // this.country = 'United States';
+    /* Fetching the user city */
     if (window.navigator && window.navigator.geolocation) {
 
       window.navigator.geolocation.getCurrentPosition(
         position => {
-          this.geolocationPosition = position,
+          this.geolocationPosition = position;
             this.lat = position.coords.latitude;
             this.long = position.coords.longitude;
 

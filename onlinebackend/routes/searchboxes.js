@@ -1,3 +1,5 @@
+/* Rest Api for fetching the search data */
+
 const express = require('express');
 const router = express.Router();
 const Searchbox = require('../models/searchbox');
@@ -12,16 +14,8 @@ router.get('/searchbox/:param1',(req, res, next)=>{
       return res.json({success: false} , {msg: 'Unsuccessful'});
     }
     else {
-        /*let tit=search[0].title;
-        console.log(tit);*/
       res.json({
         search
-        /*success: true,
-        search : {
-          title: search.title,
-          description: search.description,
-          link: search.link
-        }*/
       });
     }
   });
